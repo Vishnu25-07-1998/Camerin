@@ -1,0 +1,65 @@
+.autocomplete-container {
+    position: relative;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.autocomplete-container.active {
+    border-color: #898d92;
+    background-color: #f8f9fa;
+}
+
+.dropdown-icon {
+    margin-right: 10px;
+}
+
+.table-autocomplete {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    width: 100%;
+}
+
+.table-drop-textarea {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 6px 8px;
+    resize: none;
+    field-sizing: content;
+    white-space: nowrap;
+}
+
+.auto-dropdown-list {
+    position: fixed;
+    z-index: 1000;
+    background: white;
+    border: 1px solid #ccc;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    max-height: 0;
+    overflow-y: auto;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.auto-dropdown-list.active {
+    max-height: 200px; 
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.auto-dropdown-list-item {
+    padding: 8px;
+    cursor: pointer;
+    font-size: 0.8em;
+    color: #222;
+    text-wrap-mode: nowrap;
+}
+
+.auto-dropdown-list-item:hover {
+    background-color: #f1f1f1;
+}

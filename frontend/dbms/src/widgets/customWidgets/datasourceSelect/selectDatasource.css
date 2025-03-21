@@ -1,0 +1,64 @@
+.select-datasources {
+    position: relative;
+    border: 1px solid #ddd;
+}
+
+.selected-box {
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+    width: 100%;
+}
+
+.box-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 6px 8px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.dbIcon {
+    width: 20px;
+    height: auto;
+    object-fit: contain;
+}
+
+.arrow-icon {
+    margin-right: 4px;
+    color: #608;
+}
+
+.dropdown-list {
+    position: fixed;
+    z-index: 1000;
+    background: white;
+    border: 1px solid #ccc;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    max-height: 0;
+    overflow-y: auto;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.dropdown-list.active {
+    max-height: 200px; 
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.dropdown-list-item {
+    padding: 8px;
+    cursor: pointer;
+    font-size: 0.8em;
+    color: #222;
+}
+
+.dropdown-list-item:hover {
+    background-color: #f1f1f1;
+}
