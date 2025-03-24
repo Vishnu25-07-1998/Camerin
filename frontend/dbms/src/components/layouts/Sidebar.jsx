@@ -11,21 +11,6 @@ const Sidebar = () => {
     const { authState, logout } = useContext(AuthContext);
     const navigate = useNavigate();
 
-    const handleItemClick = (item) => {
-        setSearchQuery(item);
-        setDropdown(false);
-        switch (item) {
-            case "Database Analytics":
-                navigate("/dashboard/db-analytics");
-                break;
-            case "High Level Design/Mapping":
-                navigate("/dashboard/highLevel");
-                break;
-            default:
-                break;
-        }
-    }
-
     const handleLogout = () => {
         logout();
         navigate('/sign');

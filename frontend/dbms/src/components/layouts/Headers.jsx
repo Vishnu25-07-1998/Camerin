@@ -13,6 +13,7 @@ const Headers = () => {
     const [active, setActive] = useState(location.pathname);
     const selectRef = useRef(null);
     const { authState, logout } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const items = [
         'Database Analytics',
@@ -39,6 +40,21 @@ const Headers = () => {
             setDropdown(false);
         }
     };
+
+    const handleItemClick = (item) => {
+        setSearchQuery(item);
+        setDropdown(false);
+        switch (item) {
+            case "Database Analytics":
+                navigate("/dashboard/db-analytics");
+                break;
+            case "High Level Design/Mapping":
+                navigate("/dashboard/highLevel");
+                break;
+            default:
+                break;
+        }
+    }
 
     useEffect(() => {
         document.addEventListener('mousedown', handleClickOutside);

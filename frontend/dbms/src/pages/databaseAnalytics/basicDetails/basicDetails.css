@@ -1,0 +1,168 @@
+.datasource-container-form {
+    padding: 0.5em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    border-bottom: 0.5px solid rgb(230, 227, 227);
+}
+
+.entity-container {
+    padding: 0.5em;
+    border-bottom: 0.5px solid rgb(230, 227, 227);
+    display: flex;
+    flex-direction: column;
+}
+
+.entity-title {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.entity-block {
+    background-color: #fff;
+    border-radius: 6px;
+    padding: 12px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.datasource-name {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.entity-detail {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 0;
+}
+
+.checkbox, .remove-file {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #333;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.remove-file {
+    border-radius: 8px;
+}
+
+.remove-file:hover {
+    background-color: var(--error-color);
+}
+
+.remove-icon {
+    color: var(--dark-accent-color);
+    font-size: 10px;
+}
+
+.remove-icon:hover {
+    color: #fff;
+}
+
+.entity-detail .checkbox.checked {
+    background-color: #007bff;
+}
+
+.entity-detail .checkicon {
+    color: #fff;
+    font-size: 14px;
+}
+
+.tableName {
+    flex: 1;
+    display: flex;
+    border-radius: 8px;
+    align-items: center;
+    height: 1.3rem;
+    border: 1px solid #ccc;
+    font-size: 12px;
+    padding: 0.6rem;
+    color: #D12;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    user-select: none;
+}
+
+.module-btn {
+    width: 100%;
+    background: #a406f5;
+    color: white;
+    border: none;
+    padding: 8px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+    position: sticky;
+    margin-top: auto;
+    bottom: 0;
+    border-top: 1.5px solid #888080;
+}
+
+.table-panel {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    justify-content: space-between;
+    width: 100%;
+    margin: 10px 0;
+}
+
+.table-options {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.search-input {
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    width: 200px;
+    min-width: 120px; 
+    flex: 1;
+}
+
+.download-cover {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+}
+
+.download-icon {
+    color: #7435;
+}
+
+.download-icon:hover {
+    transform: scale(1.2);
+}
+
+.scrollbar::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 2px;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+    background: #e0e0e0; 
+}

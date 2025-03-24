@@ -1,0 +1,43 @@
+import { useMemo } from "react";
+
+const SourceRelationColumns = () => 
+    useMemo(() => [
+    { header: 'ID', accessorKey: 'id', hidden: false },
+    { header: 'Data_Source_Name_Left', accessorKey: 'leftDatasource', editable: true },
+    { header: 'Source_Left_Entity', accessorKey: 'leftSourceEntity', editable: true },
+    { header: 'Left_Entity_Alias_Name', accessorKey: 'leftSourceEntityAlias', editable: true },
+    { header: 'Source_Left_Entity_Extraction_Bundle', accessorKey: 'sourceLeftEntityExtractionBundle', editable: true },
+    { header: 'Left_Alias_Type_Of_Data_Store', accessorKey: 'leftAliasTypeOfDataStore', editable: true },
+    { header: 'Left_Attribute', accessorKey: 'leftSourceAttribute', editable: true, size: 100 },
+    { header: 'Left_Filter_Transformation_Rule_Language', accessorKey: 'leftFilterTransformationRuleLanguage', editable: true },
+    { header: 'Left_Filter_Transformation_Rule', accessorKey: 'leftFilterTransformationRule', editable: true, multiLine: true },
+    { header: 'Alias_Relationship_Type_Language', accessorKey: 'aliasRelationshipTypeLanguage', editable: true },
+    { header: 'Alias_Relationship_Type', accessorKey: 'aliasRelationshipType', editable: true },
+    { header: 'Alias_Attribute_Relationship_Filter_Condition_Language', accessorKey: 'aliasAttributeRelationshipFilterConditionLanguage', editable: true },
+    { header: 'Alias_Attribute_Relationship_Filter_Condition', accessorKey: 'aliasAttributeRelationshipFilterCondition', editable: true },
+    { header: 'Join_Method_Language', accessorKey: 'joinMethodLanguage', editable: true },
+    { header: 'Join_Method', accessorKey: 'joinMethod', editable: true },
+    { header: 'Data_Source_Name_Right', accessorKey: 'rightDatasource', editable: true },
+    { header: 'Source_Right_Entity', accessorKey: 'rightSourceEntity', editable: true },
+    { header: 'Right_Entity_Alias_Name', accessorKey: 'rightSourceEntityAlias', editable: true },
+    { header: 'Source_Right_Entity_Extraction_Bundle', accessorKey: 'sourceRightEntityExtractionBundle', editable: true },
+    { header: 'Right_Alias_Type_Of_Data_Store', accessorKey: 'rightAliasTypeOfDataStore', editable: true },
+    { header: 'Right_Attribute', accessorKey: 'rightSourceAttribute', editable: true },
+    { header: 'Right_Filter_Transformation_Rule_Language', accessorKey: 'rightFilterTransformationRuleLanguage', editable: true },
+    { header: 'Right_Filter_Transformation_Rule', accessorKey: 'rightFilterTransformationRule', editable: true, multiLine: true },
+    { header: 'Target_Temp_Output_Number', accessorKey: 'targetTempOutputNumber', editable: true },
+    { header: 'Relationship_Type', accessorKey: 'relationshipType', editable: true },
+    { header: 'Left_To_Right_Set_Information', accessorKey: 'leftToRightSetInformation', editable: true },
+    { header: 'Target_Temp_Type_Of_Data_Store', accessorKey: 'targetTempTypeOfDataStore', editable: true },
+    { header: 'Target_Datasource_Name', accessorKey: 'targetDatasourceName', editable: false },
+    { header: 'Target_Name', accessorKey: 'targetName', editable: false },
+    { header: 'Load_Option', accessorKey: 'loadOption', editable: false },
+    { header: 'Order_By', accessorKey: 'orderBy', editable: false },
+    { header: 'Parallel_Bundles_Extraction', accessorKey: 'parallelBundlesExtraction', editable: true },
+    { header: 'Parallel_Bundles_Extraction_Priority', accessorKey: 'parallelBundlesExtractionPriority', editable: true },
+    { header: 'Parallel_Bundles_Transformation', accessorKey: 'parallelBundlesTransformation', editable: true },
+    { header: 'Parallel_Bundles_Load', accessorKey: 'parallelBundlesLoad', editable: true },
+    { header: 'Parallel_Bundles_Load_Priority', accessorKey: 'parallelBundlesLoadPriority', editable: true },
+], []);
+
+export default SourceRelationColumns;
