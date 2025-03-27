@@ -10,12 +10,13 @@
     top: 0;
     width: 100%;
     height: 60px;
-    background: #333;
-    color: white;
+    color: #333;
+    background-color: white;
     display: flex;
     align-items: center;
     z-index: 1000;
     box-sizing: border-box;
+    border-bottom: 1px solid rgb(190 180 180 / 60%);
 }
 
 .main-logo {
@@ -25,6 +26,7 @@
     align-items: center;
     justify-content: center;
     display: flex;
+    border-right: 1px solid rgb(190 180 180 / 60%);
 }
 
 .nav-bar {
@@ -120,7 +122,6 @@
 
 .welcome-text strong {
     font-size: 16px;
-    color: #fff;
 }
 
 .nav-links {
