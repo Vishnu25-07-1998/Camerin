@@ -1,7 +1,0 @@
-"Mapping_Target_Key_Number","Data_Source_Name","Source_Entity","Source_Entity_Alias_Name","Source_Attribute","Filter_Transformation_Condition_Language","Filter_Transformation_Condition","Transformation_Rule_Language","Transformation_Rule","Target_Attribute","Part_of_Unique_Key","Order_by_priority_number","Order_By","Data_Type","Mandatory","Min_Length","Max_Length","Scale","Precision","Format"
-1,"Postgres_Region_1","Fielding_ODI","Fielding_ODI_Before200","Player","","","Tool_defined","Passthrough","player","","","","","","","","","",""
-2,"Mysql_Region_1","fielding_t20","fielding_t20_v6","Mat","","","Tool_defined","Passthrough","Match","","","","","","","","","",""
-3,"Computer_Files","Bowling_ODI","Bowling_ODI","Balls","","","Tool_defined","Passthrough","Balls","","","","","","","","","",""
-4,"Postgres_Region_1","Fielding_ODI","Fielding_ODI_After200","Inns","","","Tool_defined","Passthrough","Innings","","","","","","","","","",""
-5,"Computer_Files","Bowling_ODI","Bowling_ODI_V8","Wkts","","","Tool_defined","Passthrough","Wickets","","","","","","","","","",""
-6,"Postgres_Region_1","Fielding_ODI","Fielding_ODI","Dis","","","Tool_defined","Passthrough","Distance","","","","","","","","","",""
