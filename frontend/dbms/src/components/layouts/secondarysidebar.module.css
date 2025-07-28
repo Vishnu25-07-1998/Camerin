@@ -1,0 +1,167 @@
+.secondary-sidebar {
+    display: flex;
+    flex-direction: column;
+    width: 12em;
+    border-right: 1px solid rgb(190 180 180 / 60%);
+    position: fixed;
+    top: 60px;
+    left: 0;
+    height: calc(100vh - 60px);
+    background-color: #fff;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.datasource-container-form {
+    padding: 0.5em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    border-bottom: 0.5px solid rgb(230, 227, 227);
+}
+
+.entity-container {
+    padding: 0.5em;
+    border-bottom: 0.5px solid rgb(230, 227, 227);
+    display: flex;
+    flex-direction: column;
+}
+
+.entity-title {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.entity-block {
+    background-color: #fff;
+    border-radius: 6px;
+    padding: 12px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.datasource-name {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.entity-detail {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 0;
+}
+
+.tableName {
+    flex: 1;
+    display: flex;
+    border-radius: 8px;
+    align-items: center;
+    height: 1.3rem;
+    border: 1px solid #ccc;
+    font-size: 12px;
+    padding: 0.6rem;
+    color: #D12;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    user-select: none;
+}
+
+.module-btn {
+    width: 100%;
+    background: #222;
+    color: white;
+    border: none;
+    padding: 8px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+    position: sticky;
+    margin-top: auto;
+    bottom: 0;
+    border-top: 1.5px solid #888080;
+}
+
+.module-btn:hover {
+    color: #222;
+    background-color: #f9f9f9;
+}
+
+.module-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    color: #666;
+  }
+
+
+
+.upload-area {
+    background: #ffffff;
+    padding: 1em;
+    margin-bottom: 1em;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: 0.3s ease-in-out;
+}
+
+.upload-area:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+.uploadDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1em;
+    border: 2px dashed #007bff;
+    border-radius: 6px;
+    text-align: center;
+    cursor: pointer;
+    color: #007bff;
+    font-weight: bold;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.uploadDiv:hover {
+    background: #007bff;
+    color: #ffffff;
+}
+
+.uploadLabel {
+    margin-top: 0.5em;
+    font-size: 0.9em;
+}
+
+.upload-file-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 0.5em;
+}
+
+.file-list-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    padding: 0.5em;
+    border-radius: 4px;
+    background: #f9f9f9;
+    font-size: 0.85em;
+    color: #333;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.file-list-item:hover {
+    background: #e6e6e6;
+}
+
+.file-name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 8em;
+}

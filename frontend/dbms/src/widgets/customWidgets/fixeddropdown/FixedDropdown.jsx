@@ -20,6 +20,7 @@ const FixedDropdown = ({ selectedValue, options, onChange, placeholder, customSt
             document.removeEventListener("mousedown", handleClickOutside);
         };
     }, []);
+    
 
     useEffect(() => {
         if (isDropdown) {

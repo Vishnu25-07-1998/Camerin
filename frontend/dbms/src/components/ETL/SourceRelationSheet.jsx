@@ -276,7 +276,7 @@ const SourceRelationSheet = ({ schemaEntries, filteredSchema, sourceRelation, se
                     if (dropdownOptions[column.accessorKey]) {
                       return (
                         <td key={column.accessorKey}>
-                          <FixedDropdown selectedValue={cellValue} options={dropdownOptions[column.accessorKey]} onChange={(e) => handleChange(e, column.accessorKey)} placeholder={column.header} />
+                          <FixedDropdown selectedValue={cellValue} options={dropdownOptions[column.accessorKey]} onChange={(e) => handleChange(e, column.accessorKey)} placeholder={column.header} customStyles={{ container: { minWidth: "180px" } }}  />
                         </td>
                       );
                     } else if (column.multiLine) {

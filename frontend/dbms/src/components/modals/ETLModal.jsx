@@ -1,90 +1,103 @@
 import './etlModal.css';
-import { useContext, useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import axios from "axios";
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import CustomSelect from '../../widgets/customWidgets/customSelect/CustomSelect';
 import FixedDropdown from '../../widgets/customWidgets/fixeddropdown/FixedDropdown';
 import { AuthContext } from '../../context/AuthContext';
+import * as XLSX from "xlsx";
 import PropTypes from "prop-types";
 
-const ETLModal = ({ schemaEntries, closeETLModal }) => {
+const ETLModal = ({ schemaEntries, computerFiles, closeETLModal }) => {
+    const API_URL = import.meta.env.VITE_API_URL;
     const { authState } = useContext(AuthContext);
-    const [formData, setFormData] = useState({
-        module: "",
-        selectedDatasource: "",
-        selectedEntity: "",
-        fileName: "",
-    });
-    const [data, setData] = useState([]);
-    const datsourceOptions = [...new Set(schemaEntries.map(item => item.datasource))];
-    const sourceEntityOptions = formData['selectedDatasource']
-        ? schemaEntries.filter(item => item.datasource === formData['selectedDatasource']).map(item => item.sourceEntity)
-        : ["Select first datasource"];
-    const moduleOptions = ['Get Basic Details', 'Get Cardinality', 'Get Distinct Column Length'];
-    const extensions = ['view in csv', 'view in excel', 'view in pdf'];
-    const handleFormdata = (e, field) => {
-        const { value } = e.target;
-        setFormData(prev => ({ ...prev, [field]: value }));
-    }
-    const headers = data
-        .filter(({ fileName }) => fileName === formData['fileName'])
-        .map(({ data }) => data[0] ? Object.keys(data[0]) : [])
-        .flat();
-    const tData = data
-        .filter(({ fileName }) => fileName === formData['fileName'])
-        .map(({ data }) => data).flat();
+    const moduleOptions = ['Basic Details', 'Cardinality', 'Distinct Column Length', 'Distinct Column Value', 'Column Each Char Count', 'Subset Relation', 'Substr and Concat Columns', 'Substr and Concat All Entities'];
+    const [selectedModule, selectModule] = useState("Basic Details");
+    const [selectedDatasource, setSelectedDatasource] = useState("");
+    const [selectedEntity, setEnity] = useState("");
+    const [localFile, setLocalFile] = useState("");
 
+    useEffect(() => {
+        if (selectedDatasource === 'Computer_Files') {
+            const selectedFile = computerFiles.find(file =>
+                file.name.replace(/\.[^/.]+$/, "") === selectedEntity
+            );
+            setLocalFile(selectedFile);
+        } else {
+            setLocalFile("");
+        }
+    }, [selectedDatasource, selectedEntity, computerFiles]);
+
+    useEffect(() => {
+        setEnity("");
+    }, [selectedDatasource]);
+   
+
+    const callAction = async () => {
+        const formData = new FormData();
+        formData.append("files", localFile);
+
+        const endpoints = {
+            "Basic Details": `${API_URL}/api/databaseAnalyticsRoute/basicDetails`,
+            "Cardinality": `${API_URL}/api/databaseAnalyticsRoute/cardinality`,
+            "Unique indexes": `${API_URL}/api/databaseAnalyticsRoute/uniqueIndexes`,
+            "Substr and Concat Columns": `${API_URL}/api/databaseAnalyticsRoute/substrConcatColumns`,
+            "Substr and Concat All Entities": `${API_URL}/api/databaseAnalyticsRoute/substrConcatAllEntities`,
+            "Subset Relations": `${API_URL}/api/userStoryRoute/subsetRelation`,
+            "Distinct Column Length": `${API_URL}/api/databaseAnalyticsRoute/distinctColumnLength`,
+            "Distinct Column values": `${API_URL}/api/databaseAnalyticsRoute/distinctColumnValues`,
+            "Column Each char Count": `${API_URL}/api/databaseAnalyticsRoute/columnEachCharCount`
+        };
+
+        const endpoint = endpoints[selectedModule];
+        if (!endpoint) return;
+
+        try {
+            const response = await axios.post(endpoint, formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                    Authorization: `Bearer ${authState.token}`,
+                },
+            });
+            // const outputData = response.data.output;
+            // console.log(outputData);
+            // localStorage.setItem('sharedViewData', JSON.stringify(outputData));
+            localStorage.setItem('selectedModule', JSON.stringify(selectedModule));
+            window.open('/etlTab', '_blank');
+        } catch (error) {
+            console.error('Error in executing Script:', error.response?.data || error.message);
+        }
+
+    }
     return (
         <div className="modalOverlay">
             <div className="modal-content">
                 <button onClick={() => closeETLModal(false)} className="close">
                     X
                 </button>
-
-                <aside className='modal-side'>
-                    <div className="select-module">
-                        <CustomSelect options={moduleOptions} onChange={(e) => handleFormdata(e, "module")} selectedValue={formData['module']} placeholder={'select module'} />
-                    </div>
-                    {formData['module'] && <div className="select-module">
-                        <CustomSelect options={datsourceOptions} onChange={(e) => handleFormdata(e, "selectedDatasource")} selectedValue={formData['selectedDatasource']} placeholder={'select datasource'} />
-                    </div>}
-                    {formData['selectedDatasource'] && <div className="select-module">
-                        <CustomSelect options={sourceEntityOptions} onChange={(e) => handleFormdata(e, "selectedEntity")} selectedValue={formData['selectedEntity']} placeholder={'select entity'} />
-                    </div>}
-                    {formData['module'] && <button onClick={() => callAction("getBasicDetails")} className='module-btn'>Basic Details</button>}
-                </aside>
-
-                <main className='modal-main'>
-                    <div className="table-panel">
-                        <FixedDropdown options={data.map((item) => item['fileName'])} onChange={(e) => handleFormdata(e, "fileName")} selectedValue={formData.fileName} placeholder={'select output file'} customStyles={{ container: { maxWidth: "270px", borderTop: "0", borderRadius: "40%" }, list: { borderRadius: "10px" }, }} />
-                        <div className="table-options">
-                            <input type="text" className='search-input' placeholder='Search' />
-                            <span className='download-cover'><FileDownloadIcon className='download-icon' /></span>
-                        </div>
-                    </div>
-                    {headers.length > 0 && <div className="relation-table module-table">
-                        <table>
-                            <thead>
-                                <tr>
-                                    {headers.map((header, idx) => <th key={idx}>{header}</th>)}
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {tData.map((item, idx) => (
-                                    <tr key={idx}>
-                                        {headers.map((header, index) => (
-                                            <td key={index}>{item[header]}</td>
-                                        ))}
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                    </div>}
-                </main>
+                <div className="select-module">
+                    <CustomSelect options={moduleOptions} onChange={(e) => selectModule(e.target.value)} selectedValue={selectedModule} placeholder={'select Module'} />
+                    <CustomSelect options={[...new Set(schemaEntries.map(item => item.datasource))]} onChange={(e) => setSelectedDatasource(e.target.value)} selectedValue={selectedDatasource} placeholder={'select datasource'} />
+                    <CustomSelect options={schemaEntries.filter(item => item.datasource === selectedDatasource).map(item => item.sourceEntity)} onChange={(e) => setEnity(e.target.value)} selectedValue={selectedEntity} placeholder={'select Entity'} />
+                </div>
+                <div className="module-btns">
+                    <button onClick={callAction}>Submit</button>
+                    {/* <button onClick={() => callAction("Basic Details")}>Get Basic Details</button>
+                    <button onClick={() => callAction("Cardinality")}>Get Cardinality</button>
+                    <button onClick={() => callAction("Unique indexes")}>Get Unique Indexes</button> */}
+                </div>
+                {/* <div className="module-btns">
+                    <button>Get Distinct Column Value</button>
+                    <button>Get Distinct Column Length</button>
+                    <button>Get Column Each Char Count</button>
+                </div>
+                <div className="module-btns">
+                    <button>Get Substr and Concat All Entity</button>
+                    <button>Get Substr and Concat Columns</button>
+                </div> */}
             </div>
-
         </div>
     )
-}
+};
 
 export default ETLModal

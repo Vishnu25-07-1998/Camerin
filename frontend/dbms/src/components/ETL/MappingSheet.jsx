@@ -238,7 +238,7 @@ const MappingSheet = ({ schemaEntries, filteredSchema, setFilteredSchema }) => {
                                         if (dropdownOptions[column.accessorKey]) {
                                             return (
                                                 <td key={column.accessorKey}>
-                                                    <FixedDropdown selectedValue={cellValue} options={dropdownOptions[column.accessorKey]} onChange={(e) => handleChange(e, column.accessorKey)} placeholder={column.header} />
+                                                    <FixedDropdown selectedValue={cellValue} options={dropdownOptions[column.accessorKey]} onChange={(e) => handleChange(e, column.accessorKey)} placeholder={column.header} customStyles={{ container: { minWidth: "150px" } }} />
                                                 </td>
                                             );
                                         } else if (column.multiLine & column.accessorKey !== 'filterCondition') {

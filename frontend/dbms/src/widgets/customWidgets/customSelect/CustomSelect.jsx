@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown, faCaretUp } from '@fortawesome/free-solid-svg-icons';
 import { useState, useRef, useEffect } from "react";
-import './customSelect.css';
+import styles from './customSelect.module.css';
 import PropTypes from "prop-types";
 
 const CustomSelect = ({ selectedValue, options, onChange, placeholder, customStyles }) => {
@@ -18,6 +18,7 @@ const CustomSelect = ({ selectedValue, options, onChange, placeholder, customSty
             document.removeEventListener("mousedown", handleClickOutside);
         };
     }, []);
+
 
     useEffect(() => {
         if (isDropdown) {
@@ -39,32 +40,22 @@ const CustomSelect = ({ selectedValue, options, onChange, placeholder, customSty
         setIsDropdown(false);
     };
     return (
-        <div ref={dropRef} className={`custom-dropdown-container ${isDropdown ? "active" : ""}`} style={customStyles?.container}>
-            <div
-                className="custom-drop"
-                onClick={handleDropdown}
-                style={customStyles?.dropdown}
-            >
-                <input
-                    type="text"
-                    placeholder={placeholder}
-                    value={selectedValue}
-                    readOnly
-                    className="custom-drop-input"
-                    style={customStyles?.input}
-                />
-                {isDropdown ? (
-                    <FontAwesomeIcon icon={faCaretUp} className="dropdown-icon" style={customStyles?.icon} />
-                ) : (
-                    <FontAwesomeIcon icon={faCaretDown} className="dropdown-icon" style={customStyles?.icon} />
-                )}
-            </div>
-            <ul style={customStyles?.list} className={`custom-dropdown-list ${isDropdown ? "active" : ""}`}>
+        <div className={`${styles.dropDownContainer} ${isDropdown ? styles.active : ""}`}  ref={dropRef} style={customStyles?.container}>
+            <span className={styles.selectedText} onClick={handleDropdown} >{selectedValue || placeholder}</span>
+            {isDropdown ? (
+                <FontAwesomeIcon icon={faCaretUp} className={styles.dropDownIcon} style={customStyles?.icon} />
+            ) : (
+                <FontAwesomeIcon icon={faCaretDown} className={styles.dropDownIcon} style={customStyles?.icon} />
+            )}
+            <ul style={customStyles?.list} className={`${styles.dropDownLists} ${isDropdown ? styles.active : ""}`}>
                 {options.map((item, index) => (
                     <li
                         key={`${item}_${index}`}
-                        className="custom-dropdown-list-item"
-                        onClick={() => handleOptionSelect(item)}
+                        className={`${styles.listItem} ${selectedValue === item ? styles.active : ''}`}
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            handleOptionSelect(item);
+                        }}
                         style={customStyles?.listItem}
                     >
                         {item}

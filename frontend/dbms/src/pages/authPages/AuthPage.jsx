@@ -121,7 +121,7 @@ const AuthPage = () => {
                 { headers: { 'Content-Type': 'application/json' }, withCredentials: true }
             );
             login(response?.data?.token);
-            navigate('/connections');
+            navigate('/home');
         } catch (error) {
             setAuthErrors(prevErrors => {
                 let updatedErrors = { ...prevErrors };
@@ -257,7 +257,7 @@ const AuthPage = () => {
                         <p className="error-message">{authErrors.regPassword}</p>
                     </div>
                     {isRegistering ?
-                        <div class="animate-bar">
+                        <div className="animate-bar">
                             <span className='dots'></span>
                             <span className='dots'></span>
                             <span className='dots'></span>

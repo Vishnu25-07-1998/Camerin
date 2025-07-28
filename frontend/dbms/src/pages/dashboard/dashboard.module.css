@@ -1,0 +1,29 @@
+.navigation-link-buttons {
+    display: grid;
+    grid-template-columns: 1fr; 
+    gap: 10px;
+    justify-items: center;
+    text-align: center;
+    width: 100%;
+    margin: 2em 0;
+}
+
+.link-button {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    background: var(--dark-theme-background-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 300px; 
+    min-width: 150px; 
+}
+
+.link-button:hover {
+    background-color: #fff;
+    color: var(--light-theme-text-color);
+    border: 0.5px solid #ddd;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}

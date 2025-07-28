@@ -5,8 +5,12 @@ const path = require('path');
 const fetchDatasource = require('./routes/FetchDatasources');
 const mongoose = require('mongoose');
 const authMiddleware = require('./controller/AuthMiddleware');
-// const databaseAnalytics = require('./routes/DatabaseAnalyticsRouter');
-// const etlRouter = require('./routes/ETLRouter');
+const databaseAnalytics = require('./routes/DatabaseAnalyticsRouter');
+const dbCompare = require('./routes/DbCompare');
+const etlRouter = require('./routes/ETLRouter');
+const dataAnomalyRouter = require('./routes/DataAnomaly');
+const reconcileRoute = require('./routes/Reconcile');
+const dataFlowRouter = require('./routes/DataflowRouter');
 require('dotenv').config();
 
 
@@ -22,8 +26,12 @@ app.use(cors(
 ));
 app.use('/api/auth', authRouter);
 app.use('/api/datasourceroute', fetchDatasource);
-// app.use('/api/databaseAnalyticsRoute', databaseAnalytics);
-// app.use('api/etlRoute', etlRouter);
+app.use('/api/databaseAnalyticsRoute', databaseAnalytics);
+app.use('/api/etlRoute', etlRouter);
+app.use('/api/dbCompareRoute', dbCompare);
+app.use('/api/reconRouter', reconcileRoute);
+app.use('/api/dataAnomalyRoute', dataAnomalyRouter);
+app.use('/api/dataflowRoute', dataFlowRouter);
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 

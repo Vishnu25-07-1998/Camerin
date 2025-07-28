@@ -128,11 +128,10 @@ const executeScript = async (script) => {
 };
 
 
-router.post('/ETLCall', authMiddleware, async (req, res) => {  
+router.post('/ETLCall', authMiddleware, async (req, res) => {
     try {
-        const mappingsheetDirectory = path.join(__dirname, '..', 'uploads', 'Project_1', 'Group_1', 'Relation_sheets', 'Mapping_table.csv');
-        const sourceRelationPath = path.join(__dirname, '..', 'uploads', 'Project_1', 'Group_1', 'Relation_sheets', 'Source_Relations.csv');
-        
+        const mappingsheetDirectory = "C:/Python_Code/Project_1/Group_1/Mapping_Logic/Mapping_Table.csv";
+        const sourceRelationPath = "C:/Python_Code/Project_1/Group_1/Source_Relations/Source_Relations.csv";
         const { filteredSchema, sourceRelation } = req.body;
 
         if (!filteredSchema || !sourceRelation) {
@@ -151,8 +150,6 @@ router.post('/ETLCall', authMiddleware, async (req, res) => {
 
         // Execute the ETL script
         const result = await executeScript('C:/Python_Code/Apr_2023_31_Data_Extract_Code_Generate_v1077m.py');
-        console.log("Script Execution Result:", result);
-
         res.status(200).json({ message: "ETL process completed successfully", output: result });
 
     } catch (error) {

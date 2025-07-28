@@ -1,0 +1,14 @@
+Table,Column,Type,RelationID
+Customers,CustomerID,PK,
+Orders,OrderID,PK,
+Orders,CustomerID,FK -> Customers.CustomerID,rel1
+Orders,LineNumber,INT,
+Orders,ProductID,FK -> Products.ProductID,rel2
+Orders,Vid,FK -> Vendors.VendorID,rel3
+OrderLines,OrderID,FK -> Orders.OrderID,rel4
+OrderLines,LineNumber,FK -> Orders.LineNumber,rel4
+Products,ProductID,PK,
+Products,ProductName,VARCHAR,
+Products,Price,FLOAT,
+Vendors,VendorID,PK,
+Vendors,VendorName,VARCHAR,

@@ -1,0 +1,21 @@
+.module-top {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 10px 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.select_wrap {
+    flex: 1;
+    min-width: 250px;
+    display: flex;
+    flex-direction: column;
+}
+
+.label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #333;
+}

@@ -16,16 +16,11 @@
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 1000px;
-    height: 80%;
+    width: 700px;
+    height: 60%;
     max-width: 90%;
     position: relative;
     overflow: auto;
-    display: grid;
-    gap: 6px;
-    grid-template-columns: auto 1fr;
-    grid-template-areas:
-        "sidebar main";
 }
 
 .modalOverlay .close {
@@ -68,4 +63,29 @@
     display: flex;
     flex-direction: column;
     overflow: hidden;
+}
+
+.select-module {
+    display: flex;
+    gap: 1em;
+    padding: 1em;
+    flex-direction: column;
+}
+
+.module-btns {
+    display: flex;
+    gap: 3em;
+    padding: 1em;
+    align-items: baseline;
+}
+
+.module-btns button {
+    padding: 1em;
+    border: none;
+    background-color: #AC42;
+}
+
+.module-btns button:hover {
+    cursor: pointer;
+    background-color: #a0a08c;
 }

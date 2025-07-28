@@ -42,14 +42,12 @@
     max-height: 0;
     overflow-y: auto;
     opacity: 0;
-    transform: translateY(-10px);
-    transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
 
 .dropdown-list.active {
     max-height: 200px; 
     opacity: 1;
-    transform: translateY(0);
 }
 
 .dropdown-list-item {

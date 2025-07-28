@@ -1,9 +1,11 @@
-import './sidebar.css';
 import SpaceDashboardIcon from '@mui/icons-material/SpaceDashboard';
 import StorageIcon from '@mui/icons-material/Storage';
+import HomeIcon from '@mui/icons-material/Home';
+import SettingsIcon from '@mui/icons-material/Settings';
 import { useState, useContext } from 'react';
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from '../../context/AuthContext';
+import styles from './sidebar.module.css';
 
 const Sidebar = () => {
     const location = useLocation();
@@ -11,28 +13,35 @@ const Sidebar = () => {
     const { authState, logout } = useContext(AuthContext);
     const navigate = useNavigate();
 
-    const handleLogout = () => {
-        logout();
-        navigate('/sign');
-    }
 
     return (
-        <aside className="module-sidebar">
-            <ul className="sidebar-menu">
-                <li className={`sidebar-item ${location.pathname.includes("/dashboard") ? "active" : ""}`}>
-                    <Link to="/dashboard" className="sidebar-link">
-                        <SpaceDashboardIcon className="sidebar-icon" />
-                        <p className="menu-text">Dashboard</p>
+        <aside className={styles['primary-sidebar']}>
+            <ul className={styles["primary-sidebar-menu"]}>
+                <li className={`${styles['primary-sidebar-item']} ${location.pathname.includes("/home") ? styles.active : ""}`}>
+                    <Link to="/home" className={styles["primary-sidebar-link"]}>
+                        <HomeIcon className={styles["primary-sidebar-icon"]} />
+                        <p className={styles["menu-text"]}>Home</p>
                     </Link>
                 </li>
-                <li className={`sidebar-item ${location.pathname === "/connections" ? "active" : ""}`}>
-                    <Link to="/connections" className="sidebar-link">
-                        <StorageIcon className="sidebar-icon" />
-                        <p className="menu-text">Connections</p>
+                <li className={`${styles['primary-sidebar-item']} ${location.pathname.includes("/dashboard") ? styles.active : ""}`}>
+                    <Link to="/dashboard" className={styles["primary-sidebar-link"]}>
+                        <SpaceDashboardIcon className={styles["primary-sidebar-icon"]} />
+                        <p className={styles["menu-text"]}>Dashboard</p>
+                    </Link>
+                </li>
+                <li className={`${styles['primary-sidebar-item']} ${location.pathname === "/connections" ? styles.active : ""}`}>
+                    <Link to="/connections" className={styles["primary-sidebar-link"]}>
+                        <StorageIcon className={styles["primary-sidebar-icon"]} />
+                        <p className={styles["menu-text"]}>Connections</p>
+                    </Link>
+                </li>
+                <li className={`${styles['primary-sidebar-item']} ${location.pathname === "/settings" ? styles.active : ""}`}>
+                    <Link to="/settings" className={styles["primary-sidebar-link"]}>
+                        <SettingsIcon className={styles["primary-sidebar-icon"]} />
+                        <p className={styles["menu-text"]}>Settings</p>
                     </Link>
                 </li>
             </ul>
-            <button className='module-btn' onClick={handleLogout}>Log Out</button>
         </aside>
     )
 }

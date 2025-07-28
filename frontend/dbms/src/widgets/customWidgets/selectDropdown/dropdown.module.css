@@ -1,0 +1,84 @@
+.custom-dropdown-container {
+    position: relative;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    display: flex;
+    gap: 0.8em;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 200px;
+    padding: 0.5em;
+    cursor: pointer;
+}
+
+.selectedText {
+    color: #654;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.dropdown-icon {
+    margin-right: 10px;
+    color: #654;
+}
+
+.custom-dropdown-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: white;
+    border: 1px solid #ccc;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    max-height: 0;
+    overflow-y: auto;
+    opacity: 0;
+    transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.custom-dropdown-list.active {
+    max-height: 200px; 
+    opacity: 1;
+    transform: translateY(0);
+    margin-top: 4px;
+}
+
+.custom-dropdown-list-item {
+    padding: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.custom-dropdown-list-item.active {
+    background-color: #f1f1f1;
+}
+
+.custom-dropdown-list-item:hover {
+    background-color: black;
+}
+
+.custom-dropdown-list-item:hover .listText {
+    color: #fff;
+}
+
+.listText {
+    font-size: 0.8em;
+    color: #222;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    flex: 1;
+}
+
+.DeleteIcon {
+    font-size: 14px !important;
+    color: var(--error-color);
+    margin-right: 4px;
+    display: flex;
+    justify-content: flex-end;
+}

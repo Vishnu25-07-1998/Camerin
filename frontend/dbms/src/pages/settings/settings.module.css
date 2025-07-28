@@ -1,0 +1,103 @@
+.settings {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.settings__header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+}
+
+.settings__actions button {
+  margin-left: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.settings__cancel {
+  background-color: #f3f4f6;
+  border: 1px solid #d1d5db;
+}
+
+.settings__cancel:hover {
+  background-color: #e5e7eb;
+}
+
+.settings__save {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+}
+
+.settings__save:hover {
+  background-color: #1d4ed8;
+}
+
+.settings__editIcon {
+  cursor: pointer;
+  color: #6b7280;
+}
+
+.settings__editIcon:hover {
+  color: #374151;
+}
+
+.settings__form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  transition: opacity 0.3s ease;
+}
+
+.settings__fieldset {
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.settings__fieldset:disabled,
+.settings__fieldset[disabled] {
+  opacity: 0.8;
+  cursor: not-allowed;
+}
+
+.settings__legend {
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #374151;
+}
+
+.settings__inputGroup {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.settings__inputGroup label {
+  font-size: 0.95rem;
+  color: #374151;
+  margin-bottom: 0;
+}
+
+.settings__inputGroup input {
+  width: 120px; /* ✅ small fixed width */
+  padding: 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.settings__inputGroup input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+

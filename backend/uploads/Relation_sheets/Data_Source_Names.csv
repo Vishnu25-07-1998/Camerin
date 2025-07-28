@@ -1,3 +1,4 @@
 "Sl_No","Data_Source_Name","DB_URL","Database_Name","Host_Name","Port_Number","Username","Password"
 1,"postgres_cricket_stats","postgresql+psycopg2","cricket_stats","localhost",5432,"postgres","postgres"
-2,"Computer_Files","Folder_csv","C:\Users\Admin\Desktop\Camerin\backend\uploads\Entities_1\","Not valid","Not valid","Not valid","Not valid"
+2,"Mysql_Cricket_stats","mysql+pymysql","cricket_statistics","localhost",3306,"root","Mysql"
+3,"Computer_Files","Folder_csv","C:\Users\Admin\Desktop\Camerin\backend\uploads\Entities_1\","Not valid","Not valid","Not valid","Not valid"

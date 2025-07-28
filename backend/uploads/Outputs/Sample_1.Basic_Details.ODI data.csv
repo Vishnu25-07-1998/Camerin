@@ -1,0 +1,16 @@
+Table_Name,Column_Name,Mandatory,Percentage_of_not_null_values,Data_Type_Python,Min_Length,Max_Length,Scale,Precision,Data_Type,Sample_Value(s)
+ODI data,Unnamed: 0,Yes,100.000000,int64,1.000000,2.000000,,,Integer,"0, 9"
+ODI data,Player,Yes,100.000000,object,10.000000,30.000000,,,Alphanumeric,"A Bagai (CAN), Zulqarnain Haider (PAK)"
+ODI data,Span,Yes,100.000000,object,9.000000,9.000000,,,Alphanumeric,"1971-1971, 2019-2019"
+ODI data,Mat,Yes,100.000000,int64,1.000000,3.000000,,,Integer,"1, 99"
+ODI data,Inns,Yes,100.000000,object,1.000000,3.000000,,,Alphanumeric,"-, 99"
+ODI data,NO,Yes,100.000000,object,1.000000,2.000000,,,Alphanumeric,"-, 9"
+ODI data,Runs,Yes,100.000000,object,1.000000,5.000000,,,Alphanumeric,"-, 991"
+ODI data,HS,Yes,100.000000,object,1.000000,4.000000,,,Alphanumeric,"-, 99*"
+ODI data,Ave,Yes,100.000000,object,1.000000,5.000000,,,Alphanumeric,"-, 97.0"
+ODI data,BF,Yes,100.000000,object,1.000000,5.000000,,,Alphanumeric,"-, 999"
+ODI data,SR,Yes,100.000000,object,1.000000,6.000000,,,Alphanumeric,"-, 99.88"
+ODI data,100,Yes,100.000000,object,1.000000,2.000000,,,Alphanumeric,"-, 9"
+ODI data,50,Yes,100.000000,object,1.000000,2.000000,,,Alphanumeric,"-, 96"
+ODI data,0,Yes,100.000000,object,1.000000,2.000000,,,Alphanumeric,"-, 9"
+ODI data,Unnamed: 13,Default_Null,0.000000,float64,,,,,Not_Applicable,

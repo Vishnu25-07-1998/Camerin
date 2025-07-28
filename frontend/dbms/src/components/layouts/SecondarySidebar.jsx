@@ -9,21 +9,22 @@ import CheckIcon from '@mui/icons-material/Check';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFileCsv } from "@fortawesome/free-solid-svg-icons";
 import ClearIcon from '@mui/icons-material/Clear';
+import styles from './secondarysidebar.module.css';
 
-const SecondarySidebar = ({buttonText, onAction}) => {
+const SecondarySidebar = ({executing, onAction, config, setConfig, folder, setFolder, checkedEntities, setCheckedEntities, computerFiles, setComputerFiles}) => {
 
     const API_URL = import.meta.env.VITE_API_URL;
     const { authState } = useContext(AuthContext);
     const [datasources, setDatasources] = useState([]);
-    const [config, setConfig] = useState({
-        postgres: '',
-        mySql: '',
-        folder: '',
-    });
-    const [folder, setFolder] = useState(false);
+    // const [config, setConfig] = useState({
+    //     postgres: '',
+    //     mySql: '',
+    //     folder: '',
+    // });
+    // const [folder, setFolder] = useState(false);
     const [fetchedTables, setFetchedTables] = useState({});
-    const [checkedEntities, setCheckedEntities] = useState([]);
-    const [computerFiles, setComputerFiles] = useState([]);
+    // const [checkedEntities, setCheckedEntities] = useState([]);
+    // const [computerFiles, setComputerFiles] = useState([]);
     const fileInputRef = useRef(null);
    
 
@@ -96,6 +97,12 @@ const SecondarySidebar = ({buttonText, onAction}) => {
     const handleLabelClick = () => {
         fileInputRef.current.click();
     };
+
+    const removeFile = (file) => {
+        setComputerFiles(prevFiles => prevFiles.filter(item => item !== file));
+    }
+
+    
     // onchange for file upload
     const changeHandler = (event) => {
         const newFiles = Array.from(event.target.files);
@@ -108,21 +115,21 @@ const SecondarySidebar = ({buttonText, onAction}) => {
     }    
 
     return (
-        <aside className="module-sidebar">
-            <form className='datasource-container-form' onSubmit={handleDatasourceSubmit}>
+        <aside className={`${styles["secondary-sidebar"]} scrollbar`}>
+            <form className={styles['datasource-container-form']} onSubmit={handleDatasourceSubmit}>
                 <SelectDatasource icon={postgresIcon} selectedValue={config.postgres} options={postgresDatasources.map(item => item.datasource)} onChange={(e) => selectDatasource(e, "postgres")} />
                 <SelectDatasource icon={mysqlIcon} options={mysqlDatasources.map(item => item.datasource)} selectedValue={config.mySql} onChange={(e) => selectDatasource(e, "mySql")} />
                 <SelectDatasource icon={folderIcon} options={foldersource.map(item => item.datasource)} selectedValue={config.folder} onChange={(e) => selectDatasource(e, "folder")} />
                 <button type="submit" className="sidebar-btn">Fetch</button>
             </form>
             {(Object.keys(fetchedTables).length > 0 || folder) && (
-                <div className="entity-container">
-                    <p className='entity-title'>Tables & Files</p>
+                <div className={styles["entity-container"]}>
+                    <p className={styles['entity-title']}>Tables & Files</p>
                     {fetchedTables && Object.entries(fetchedTables).map(([datasource, tables]) => (
-                        <div className="entity-block" key={datasource}>
-                            <p className='datasource-name'>{datasource}</p>
+                        <div className={styles["entity-block"]} key={datasource}>
+                            <p className={styles['datasource-name']}>{datasource}</p>
                             {tables.map((table, tabIndex) => (
-                                <div className='entity-detail' key={`${table.tableName}_${tabIndex}`}>
+                                <div className={styles['entity-detail']} key={`${table.tableName}_${tabIndex}`}>
                                     <span
                                         className={`checkbox ${checkedEntities.some(item => item.key === `${datasource}_${table.tableName}_${tabIndex}`) ? 'checked' : ''}`}
                                         onClick={() => handleCheckboxChange(datasource, table.tableName, tabIndex)}
@@ -131,7 +138,7 @@ const SecondarySidebar = ({buttonText, onAction}) => {
                                             <CheckIcon className="checkicon" />
                                         )}
                                     </span>
-                                    <span className="tableName">{table.tableName}</span>
+                                    <span className={styles["tableName"]}>{table.tableName}</span>
                                 </div>
                             ))}
                         </div>
@@ -140,7 +147,7 @@ const SecondarySidebar = ({buttonText, onAction}) => {
                     {folder && (<div className="entity-block">
                         <div onClick={handleLabelClick} style={{ display: "flex", gap: "0.5rem", cursor: "pointer" }}>
                             <FontAwesomeIcon icon={faFileCsv} style={{ fontSize: '1rem', color: '#A84' }} />
-                            <p className='datasource-name'>Computer_Files</p>
+                            <p className={styles['datasource-name']}>Computer_Files</p>
                             <input
                                 type="file"
                                 name="files"
@@ -151,14 +158,14 @@ const SecondarySidebar = ({buttonText, onAction}) => {
                             />
                         </div>
                         {computerFiles.length > 0 && computerFiles.map(item => {
-                            let fileName = item.name.split('.').slice(0, -1).join('.');
+                            let fileName = item.name.replace(/\.(csv|xlsx)$/i, '');
                             fileName = fileName.length > 20
                                 ? `${fileName.slice(0, 10)}...${fileName.slice(-6)}`
                                 : fileName;
                             return (
-                                <div className='entity-detail' key={item.name}>
+                                <div className={styles['entity-detail']} key={item.name}>
                                     <FontAwesomeIcon icon={faFileCsv} style={{ fontSize: '15px', color: 'blue' }} />
-                                    <span className="tableName">{fileName}</span>
+                                    <span className={styles["tableName"]}>{fileName}</span>
                                     <span className="remove-file" onClick={() => removeFile(item)}><ClearIcon className='remove-icon' style={{ fontSize: "14px" }} /></span>
                                 </div>
                             );
@@ -167,7 +174,7 @@ const SecondarySidebar = ({buttonText, onAction}) => {
                     {/* <button onClick={handleEntitySubmit} className="sidebar-btn">continue</button> */}
                 </div>
             )}
-            <button className='module-btn' onClick={onAction}>{buttonText}</button>
+            <button className={styles['module-btn']} disabled={executing} onClick={onAction}>Submit</button>
             {/* {schemaEntries.length > 0 && <button className='module-btn' onClick={callAction}>Basic Details</button>} */}
         </aside>
     )

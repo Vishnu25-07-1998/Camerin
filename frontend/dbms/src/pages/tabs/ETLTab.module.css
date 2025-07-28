@@ -1,0 +1,41 @@
+.tabWrapper {
+    padding: 1em;
+}
+
+.tablePanel {
+    display: flex;
+    align-items: center;
+    /* padding: 10px 20px; */
+    justify-content: space-between;
+    width: 100%;
+    margin: 10px 0;
+}
+
+.tableName {
+    padding: 0.5em;
+    border: 2.5px solid #eee;
+    font-size: 12px;
+    font-weight: 600;
+    color: rgb(114 111 92);
+    border-top: 0;
+    border-left: 0;
+    border-radius: 20%;
+    font-family: cursive;
+}
+
+.tableOptions {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.tabTable {
+    max-height: calc(100vh - 100px);
+    border: 1px solid #ccc;
+    width: 100%;
+    overflow: auto;
+    box-sizing: border-box;
+    border: 0.5px solid rgb(230, 227, 227);
+    border-top: 0.5px solid rgba(224, 224, 224, 1);
+    background-color: #fff;
+}

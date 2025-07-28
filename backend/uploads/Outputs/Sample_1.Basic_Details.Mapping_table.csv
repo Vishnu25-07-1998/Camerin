@@ -1,0 +1,21 @@
+Table_Name,Column_Name,Mandatory,Percentage_of_not_null_values,Data_Type_Python,Min_Length,Max_Length,Scale,Precision,Data_Type,Sample_Value(s)
+Mapping_table,Mapping_Target_Key_Number,Yes,100.000000,int64,1.000000,1.000000,,,Integer,"1, 6"
+Mapping_table,Data_Source_Name,Yes,100.000000,object,14.000000,17.000000,,,Alphanumeric,"Computer_Files, Postgres_Region_1"
+Mapping_table,Source_Entity,Yes,100.000000,object,11.000000,12.000000,,,Alphanumeric,"Bowling_ODI, fielding_t20"
+Mapping_table,Source_Entity_Alias_Name,Yes,100.000000,object,11.000000,22.000000,,,Alphanumeric,"Bowling_ODI, fielding_t20_v6"
+Mapping_table,Source_Attribute,Yes,100.000000,object,3.000000,6.000000,,,Alphanumeric,"Balls, Wkts"
+Mapping_table,Filter_Transformation_Condition_Language,Default_Null,0.000000,float64,,,,,Not_Applicable,
+Mapping_table,Filter_Transformation_Condition,Default_Null,0.000000,float64,,,,,Not_Applicable,
+Mapping_table,Transformation_Rule_Language,Yes,100.000000,object,12.000000,12.000000,,,Alphanumeric,Tool_defined
+Mapping_table,Transformation_Rule,Yes,100.000000,object,11.000000,11.000000,,,Alphanumeric,Passthrough
+Mapping_table,Target_Attribute,Yes,100.000000,object,5.000000,8.000000,,,Alphanumeric,"Balls, player"
+Mapping_table,Part_of_Unique_Key,Default_Null,0.000000,float64,,,,,Not_Applicable,
+Mapping_table,Order_by_priority_number,Default_Null,0.000000,float64,,,,,Not_Applicable,
+Mapping_table,Order_By,Default_Null,0.000000,float64,,,,,Not_Applicable,
+Mapping_table,Data_Type,Default_Null,0.000000,float64,,,,,Not_Applicable,
+Mapping_table,Mandatory,Default_Null,0.000000,float64,,,,,Not_Applicable,
+Mapping_table,Min_Length,Default_Null,0.000000,float64,,,,,Not_Applicable,
+Mapping_table,Max_Length,Default_Null,0.000000,float64,,,,,Not_Applicable,
+Mapping_table,Scale,Default_Null,0.000000,float64,,,,,Not_Applicable,
+Mapping_table,Precision,Default_Null,0.000000,float64,,,,,Not_Applicable,
+Mapping_table,Format,Default_Null,0.000000,float64,,,,,Not_Applicable,

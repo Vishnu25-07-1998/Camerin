@@ -1,0 +1,13 @@
+digraph ER_Diagram {
+	rankdir=LR size="8,5"
+	Customers [label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0"><TR><TD COLSPAN="2"><B>Customers</B></TD></TR><TR><TD>CustomerID</TD><TD>PK</TD></TR></TABLE>> shape=plaintext]
+	Orders [label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0"><TR><TD COLSPAN="2"><B>Orders</B></TD></TR><TR><TD>OrderID</TD><TD>PK</TD></TR><TR><TD>CustomerID</TD><TD>FK -&gt; Customers.CustomerID</TD></TR><TR><TD>LineNumber</TD><TD>INT</TD></TR><TR><TD>ProductID</TD><TD>FK -&gt; Products.ProductID</TD></TR><TR><TD>Vid</TD><TD>FK -&gt; Vendors.VendorID</TD></TR></TABLE>> shape=plaintext]
+	OrderLines [label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0"><TR><TD COLSPAN="2"><B>OrderLines</B></TD></TR><TR><TD>OrderID</TD><TD>FK -&gt; Orders.OrderID</TD></TR><TR><TD>LineNumber</TD><TD>FK -&gt; Orders.LineNumber</TD></TR></TABLE>> shape=plaintext]
+	Products [label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0"><TR><TD COLSPAN="2"><B>Products</B></TD></TR><TR><TD>ProductID</TD><TD>PK</TD></TR><TR><TD>ProductName</TD><TD>VARCHAR</TD></TR><TR><TD>Price</TD><TD>FLOAT</TD></TR></TABLE>> shape=plaintext]
+	Vendors [label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0"><TR><TD COLSPAN="2"><B>Vendors</B></TD></TR><TR><TD>VendorID</TD><TD>PK</TD></TR><TR><TD>VendorName</TD><TD>VARCHAR</TD></TR></TABLE>> shape=plaintext]
+	Orders -> Customers [label=CustomerID]
+	Orders -> Products [label=ProductID]
+	Orders -> Vendors [label=Vid]
+	OrderLines -> Orders [label=OrderID]
+	OrderLines -> Orders [label=LineNumber]
+}

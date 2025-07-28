@@ -1,0 +1,50 @@
+.tablePanel {
+    display: flex;
+    align-items: center;
+    /* padding: 10px 20px; */
+    justify-content: space-between;
+    width: 100%;
+    margin: 10px 0;
+}
+
+.leftPanel {
+    display: flex;
+    gap: 1.5em;
+}
+
+.uploadIcon {
+    font-size: 28px !important;
+    color: blue;
+    cursor: pointer;
+}
+
+.uploadIcon.disabled {
+    cursor: not-allowed;
+    user-select: none;
+    pointer-events: none;
+}
+
+.iconWrapper {
+    width: 2em;
+    height: auto;
+    border: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.iconWrapper.disabled {
+    cursor: not-allowed;
+}
+
+.fileName {
+    background: #f1f1f1;
+    color: #222;
+    border: none;
+    padding: 8px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+    user-select: none;
+}

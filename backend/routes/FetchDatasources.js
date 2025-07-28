@@ -9,6 +9,8 @@ const { parse } = require('json2csv');
 const { Client } = require('pg');
 const { Pool } = require('pg');
 const mysql = require('mysql2/promise');
+const PreSave = require('../models/PreSave');
+const SettingsValues = require('../models/SettingsValues');
 
 
 const Entities_1 = path.join(__dirname, '..', 'uploads', 'Entities_1');
@@ -280,5 +282,67 @@ const queryMysqlDB = async (creds) => {
     }
 }
 
+
+router.get('/getProjects', authMiddleware, async (req, res) => {
+    const userId = req.user.id;
+
+    try {
+        // Fetch database connections for the user
+        const prevDatas = await PreSave.find({ user: userId });
+        if (prevDatas.length === 0) {
+            return res.status(404).json({ message: 'No projects found' });
+        }
+        const projectDatas = prevDatas.reduce((acc, item) => {
+            if (!acc[item.projectName]) {
+                acc[item.projectName] = [];
+            }
+            if (!acc[item.projectName].includes(item.groupName)) {
+                acc[item.projectName].push(item.groupName);
+            }
+            return acc;
+        }, {});
+        res.json(projectDatas);
+    } catch (error) {
+        console.error('Error fetching data sources or creating CSV:', error);
+        res.status(500).json({ message: 'Internal Server Error' });
+    }
+});
+
+router.post('/saveSettings', authMiddleware, async (req, res) => {
+    try {
+        const { formData } = req.body;
+        // console.log("formData : ", formData);
+        const updatedSettings = await SettingsValues.findOneAndUpdate(
+            { user: req.user.id },
+            {
+                $set: formData
+            },
+            { new: true, upsert: true, runValidators: true, setDefaultsOnInsert: true }
+        );
+
+        res.status(200).json({ message: 'Settings saved successfully', settings: updatedSettings });
+    } catch (error) {
+        console.error('Error saving settings:', error);
+        res.status(500).json({ message: 'Internal Server Error' });
+    }
+});
+
+
+router.get('/getSettingsData', authMiddleware, async (req, res) => {
+    try {
+        const settings = await SettingsValues
+            .findOne({ user: req.user.id })
+            .select('-_id -__v -user -createdAt -updatedAt')
+            .lean();
+
+        return res.status(200).json({
+            message: 'Settings retrieved successfully.',
+            settings,
+        });
+    } catch (err) {
+        console.error('Error retrieving settings:', err);
+        return res.status(500).json({ message: 'Internal Server Error' });
+    }
+});
 
 module.exports = router;

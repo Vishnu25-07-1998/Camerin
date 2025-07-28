@@ -1,0 +1,59 @@
+.moduleContent {
+    flex: 1;
+    margin-left: 12em;
+    width: calc(100% - 12em 192px);
+    padding: 10px 20px;
+}
+
+.optionBox {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    margin-bottom: 12px;
+    padding: 0.5em 0;
+}
+
+.optionGroup {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.settingsLabel {
+    display: block;
+    font-size: .65rem;
+    font-weight: 400;
+    color: var(--error-color);
+    margin-bottom: 5px;
+    line-height: 1.2;
+}
+
+
+.inputBox {
+    border: 1px solid #ccc;
+    width: 80px;
+    height: 30px;
+    outline: none;
+    border-radius: 8px;
+    padding: 8px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.inputBox:focus {
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+}
+
+.tablePanel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin: 10px 0;
+}
+
+.tableOptions {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}

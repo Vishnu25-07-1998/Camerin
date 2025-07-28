@@ -86,6 +86,7 @@ table thead tr th {
   position: relative;
   user-select: none;
   white-space: nowrap;
+  background-color: #fff;
 }
 
 table thead tr th .resizer {
@@ -133,4 +134,137 @@ table tbody tr td {
   position: relative;
   user-select: none;
   white-space: nowrap;
+}
+
+.checkbox,
+.remove-file {
+  width: 18px;
+  height: 18px;
+  border: 1px solid #333;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.remove-file {
+  border-radius: 8px;
+}
+
+.remove-file:hover {
+  background-color: var(--error-color);
+}
+
+.remove-icon {
+  color: var(--dark-accent-color);
+  font-size: 10px;
+}
+
+.remove-icon:hover {
+  color: #fff;
+}
+
+.entity-detail .checkbox.checked {
+  background-color: #007bff;
+}
+
+.entity-detail .checkicon {
+  color: #fff;
+  font-size: 14px;
+}
+
+.table-panel {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  justify-content: space-between;
+  width: 100%;
+  margin: 10px 0;
+}
+
+.table-options {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+.search-input {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  width: 200px;
+  min-width: 120px;
+  flex: 1;
+}
+
+.download-cover {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
+
+.download-icon {
+  color: #7435;
+}
+
+.download-icon:hover {
+  transform: scale(1.2);
+}
+
+.scrollbar::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 2px;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+  background: #e0e0e0;
+}
+
+
+
+.module-btn {
+  width: 100%;
+  background: #a406f5;
+  color: white;
+  border: none;
+  padding: 8px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+  position: sticky;
+  margin-top: auto;
+  bottom: 0;
+  border-top: 1.5px solid #888080;
+}
+
+.module-table {
+  max-height: calc(100vh - 100px);
+}
+
+button:disabled {
+  cursor: not-allowed;
+  /* Shows "no" cursor */
+  pointer-events: none;
+  /* Prevents interaction */
+  user-select: none;
+}
+
+.optionBox {
+  display: flex;
+  gap: 2em;
+  padding: 10px 20px;
 }

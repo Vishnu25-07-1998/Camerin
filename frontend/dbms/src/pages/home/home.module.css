@@ -1,0 +1,41 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  height: calc(100vh - 80px);
+  user-select: none;
+}
+
+.iconBox {
+  position: relative;
+  border: 1px solid #ccc;
+  padding: 1rem;
+  border-radius: 8px;
+  transition: background 0.3s;
+  cursor: pointer;
+}
+
+.iconBox:hover {
+  background: #f0f0f0;
+}
+
+.tooltip {
+  position: absolute;
+  bottom: -1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.8rem;
+  background-color: #333;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.iconBox:hover .tooltip {
+  opacity: 1;
+}
