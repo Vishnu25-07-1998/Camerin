@@ -1,0 +1,8 @@
+Table_Name,Column_Name,Mandatory,Percentage_of_not_null_values,Data_Type_Python,Min_Length,Max_Length,Scale,Precision,Data_Type,Sample_Value(s)
+Fielding_ODI,Player,Yes,100.000000,object,13,28,,,Alphanumeric,"A Flower (ZIM), Younis Khan (PAK)"
+Fielding_ODI,Span,Yes,100.000000,object,9,9,,,Alphanumeric,"1971-1984, 2013-2019"
+Fielding_ODI,Mat,Yes,100.000000,int64,2,3,,,Integer,"115, 94"
+Fielding_ODI,Inns,Yes,100.000000,int64,2,3,,,Integer,"111, 94"
+Fielding_ODI,Dis,Yes,100.000000,int64,3,3,,,Integer,"111, 501"
+Fielding_ODI,Ct,Yes,100.000000,int64,2,3,,,Integer,"105, 91"
+Fielding_ODI,St,Yes,100.000000,int64,1,3,,,Integer,"0, 99"

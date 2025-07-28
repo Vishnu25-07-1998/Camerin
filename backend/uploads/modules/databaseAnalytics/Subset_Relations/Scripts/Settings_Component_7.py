@@ -1,0 +1,50 @@
+#To be updated from UI after appropriate folder names are created based on the User's input details on the main folder, project and group names
+# folder_main_path = "C:\\Users\\Admin\\Desktop\\Camerin\\backend\\uploads\\modules"
+folder_main_path  = "C:\\Users\\Admin\\Desktop\\Camerin\\backend\\uploads\\modules"
+project_name = "\\databaseAnalytics\\Subset_Relations"
+group_name_left = ''
+group_name_right = ''
+group_name_for_filename_left = "Sample_1"
+group_name_for_filename_right = "Sample_1"
+n=10 #Count of sample values to be shown in the outputs when the comparison result has difference in values
+
+#Usually, No need to update the below
+output_file_extn = ".xlsx" #The csv option in the main code is not currently available. Once code change happens for the same, can be moved to the upper section so that user can choose.
+folder_input_name_module = "\\Inputs\\"
+folder_output_name_module = "\\Outputs"
+folder_input_name_module_for_filename = ".Source_Dumps"
+folder_output_name_module_for_filename = ".Subset_Relation."
+sheet_name = "Subset_Relation"
+True_var = 'True'
+False_var = 'False'
+Not_applicable_var = 'Not applicable'
+No_common_Values_var = 'No common Values'
+star_csv_var = '*.csv'
+errors_var = 'ignore'
+encoding_var = 'utf-8'
+and_var = '_and_'
+filename_from_var = 'filename_from'
+filename_all_var = 'filename_all'
+Column1 = 'Table_Name_From'
+Column2 = 'Column_Name_From'
+Column3 = 'Table_Name_To'
+Column4 = 'Column_Name_To'
+Column5 = 'From_Column_is_Subset_of_To_Column'
+Column6 = 'To_Column_is_Subset_of_From_Column'
+Column7 = 'From_Column_is_Superset_of_To_Column'
+Column8 = 'To_Column_is_Superset_of_From_Column'
+Column9 = 'Both_From_and_To_Column_has_same_set_of_values'
+Column10 = 'From_and_To_Columns_are_independent'
+Column11 = 'Count_of_Unique_Values_in_From_Column'
+Column12 = 'Count_of_Unique_Values_in_To_Column'
+Column13 = 'Count_of_Values_to_be removed_in_From_Column_to_make_it_equal_set_as_To_Column'
+Column14 = 'Percentage_of_Values_to_be_removed_in_From_Column_to_make_it_equal_set_as_To_Column'
+Column15 = 'Values_to_be_removed_in_From_Column_to_make_it_equal_set_as_To_Column'
+Column16 = 'Count_of_Values_to_be_removed_in_To_Column_to_make_it_equal_set_as_From_Column'
+Column17 = 'Percentage_of_Values_to_be_removed_in_To_Column_to_make_it_equal_set_as_From_Column'
+Column18 = 'Values_to_be_removed_in_To_Column_to_make_it_equal_set_as_From_Column'
+Column19 = 'Count_of_Values_in_both_From_and_To_Columns'
+Column20 = 'Percentage_of_Values_in_From_Column_common_in_To_Column'
+Column21 = 'Percentage_of_Values_in_To_Column_common_in_From_Column'
+Column22 = 'Values_in_both_From_and_To_Columns'
+#exec(open(r'C:\Users\USER_ID\OneDrive - COMPANY_NAME Group\_MyHome\user\My Documents\Official\Manhattan\python\main\To_Be_Packaged\Apr_2023_7_Source_Attributes_foreign_keys_and_subset_relation_v4.py').read(), globals())

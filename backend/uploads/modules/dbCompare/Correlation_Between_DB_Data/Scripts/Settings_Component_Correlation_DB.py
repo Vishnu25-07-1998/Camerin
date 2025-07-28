@@ -1,0 +1,13 @@
+folder_main_path = "C:\\Users\\Admin\\Desktop\\Camerin\\backend\\uploads\\modules"
+project_name = "\\dbCompare\\Correlation_Between_DB_Data"
+group_name_left = "\\Left"
+group_name_right = "\\Right"
+folder_input_name_module = "\\Inputs\\"
+folder_output_name_module = "\\Outputs"
+group_name_for_filename_left = "Entity_Left"
+group_name_for_filename_right = "Entity_Right"
+folder_input_name_module_for_filename = ".Source_Dump"
+folder_output_name_module_for_filename = ".CorrelationBtnDB."
+output_file_extn = ".xlsx"
+sheet_name = "Quick_ratio_Data_Compare"
+#exec(open(r'C:\Python_Code\Correlation_between_DB_Data_v5.py').read(), globals())
