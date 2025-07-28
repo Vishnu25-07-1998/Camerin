@@ -1,8 +1,0 @@
-Table_Name,Column_Name,Mandatory,Percentage_of_not_null_values,Data_Type_Python,Min_Length,Max_Length,Scale,Precision,Data_Type,Sample_Value(s)
-fielding_t20_data,Player,Yes,100.000000,object,10,29,,,Alphanumeric,"A Ahmadhel (), Zulqarnain Haider (PAK)"
-fielding_t20_data,Span,Yes,100.000000,object,9,9,,,Alphanumeric,"2005-2005, 2019-2019"
-fielding_t20_data,Mat,Yes,100.000000,int64,1,3,,,Integer,"1, 99"
-fielding_t20_data,Inns,Yes,100.000000,int64,1,3,,,Integer,"0, 99"
-fielding_t20_data,Dis,Yes,100.000000,int64,1,2,,,Integer,"0, 91"
-fielding_t20_data,Ct,Yes,100.000000,int64,1,2,,,Integer,"0, 9"
-fielding_t20_data,St,Yes,100.000000,int64,1,2,,,Integer,"0, 9"
